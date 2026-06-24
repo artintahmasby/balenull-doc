@@ -1,433 +1,1270 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BaleNull Documentation | مرجع کامل و رسمی</title>
-  <style>
-    :root{
-      --bg:#0b1020;
-      --bg2:#111a33;
-      --card:rgba(255,255,255,.06);
-      --card2:rgba(255,255,255,.09);
-      --text:#eaf0ff;
-      --muted:#b8c3e6;
-      --accent:#7c5cff;
-      --accent2:#35d0ba;
-      --danger:#ff5d7a;
-      --border:rgba(255,255,255,.12);
-      --shadow:0 12px 35px rgba(0,0,0,.35);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Tahoma, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(124,92,255,.22), transparent 28%),
-        radial-gradient(circle at top left, rgba(53,208,186,.16), transparent 25%),
-        linear-gradient(180deg, var(--bg), #060913 100%);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .layout{
-      display:flex;
-      min-height:100vh;
-    }
-    .sidebar{
-      width:290px;
-      position:sticky;
-      top:0;
-      height:100vh;
-      overflow:auto;
-      padding:22px 18px;
-      background:rgba(9,13,28,.72);
-      backdrop-filter: blur(16px);
-      border-left:1px solid var(--border);
-    }
-    .brand{
-      padding:18px;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(53,208,186,.10));
-      box-shadow:var(--shadow);
-      margin-bottom:18px;
-    }
-    .brand h1{margin:0 0 8px;font-size:22px}
-    .brand p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
-    .search{
-      width:100%;
-      border:none;
-      outline:none;
-      padding:14px 16px;
-      border-radius:14px;
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      border:1px solid var(--border);
-      margin:14px 0 18px;
-    }
-    .nav-group{margin-bottom:18px}
-    .nav-title{
-      font-size:12px;
-      letter-spacing:.4px;
-      color:#9fb0e8;
-      margin:14px 8px 10px;
-      text-transform:uppercase;
-    }
-    .nav a{
-      display:block;
-      padding:12px 14px;
-      border-radius:12px;
-      margin-bottom:8px;
-      color:var(--muted);
-      background:transparent;
-      border:1px solid transparent;
-      transition:.2s;
-    }
-    .nav a:hover{
-      background:var(--card);
-      border-color:var(--border);
-      color:var(--text);
-      transform:translateX(-2px);
-    }
-    .content{
-      flex:1;
-      padding:28px;
-      max-width:calc(100% - 290px);
-    }
-    .hero{
-      padding:28px;
-      border-radius:24px;
-      border:1px solid var(--border);
-      background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-      box-shadow:var(--shadow);
-      margin-bottom:22px;
-    }
-    .hero h2{margin:0 0 10px;font-size:28px}
-    .hero p{margin:0;color:var(--muted);line-height:1.9}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-      gap:16px;
-    }
-    .section{
-      margin-bottom:28px;
-      padding:22px;
-      border:1px solid var(--border);
-      border-radius:22px;
-      background:rgba(255,255,255,.035);
-      box-shadow:var(--shadow);
-    }
-    .section h3{
-      margin:0 0 14px;
-      font-size:22px;
-      color:#fff;
-    }
-    .section p.lead{
-      color:var(--muted);
-      line-height:1.9;
-      margin:0 0 16px;
-    }
-    .method{
-      padding:14px 15px;
-      border-radius:16px;
-      background:var(--card);
-      border:1px solid var(--border);
-      margin-bottom:12px;
-    }
-    .method .name{
-      font-weight:700;
-      color:#fff;
-      margin-bottom:6px;
-      font-size:14px;
-      direction:ltr;
-      text-align:left;
-    }
-    .method .desc{
-      color:var(--muted);
-      line-height:1.8;
-      font-size:13px;
-    }
-    .badge{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      background:rgba(124,92,255,.18);
-      border:1px solid rgba(124,92,255,.35);
-      color:#d9d2ff;
-      margin:0 0 12px;
-    }
-    .codebox{
-      background:#060913;
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:16px;
-      padding:16px;
-      overflow:auto;
-      direction:ltr;
-      text-align:left;
-      color:#dff7ff;
-      line-height:1.8;
-      margin:14px 0;
-      white-space:pre-wrap;
-    }
-    .footer{
-      text-align:center;
-      color:var(--muted);
-      padding:26px 0 10px;
-      font-size:13px;
-    }
-    @media (max-width: 980px){
-      .layout{flex-direction:column}
-      .sidebar{
-        width:100%;
-        height:auto;
-        position:relative;
-        border-left:none;
-        border-bottom:1px solid var(--border);
-      }
-      .content{
-        max-width:100%;
-        padding:18px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مستندات کامل BaleNull - کتابخانه ربات بله</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 300px;
+            min-width: 300px;
+            background: #020617;
+            border-left: 1px solid #1e293b;
+            padding: 24px 18px;
+            overflow-y: auto;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 4px;
+        }
+
+        .logo small {
+            font-size: 13px;
+            color: #94a3b8;
+            display: block;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .sidebar .category {
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 22px;
+            margin-bottom: 8px;
+            padding-right: 10px;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #cbd5f5;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.2s;
+            margin-bottom: 2px;
+        }
+
+        .sidebar a:hover {
+            background: #1e293b;
+            color: white;
+        }
+
+        .sidebar a .badge-count {
+            float: left;
+            background: #1e293b;
+            padding: 0 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #64748b;
+        }
+
+        /* ===== MAIN ===== */
+        .main {
+            flex: 1;
+            padding: 30px 45px 60px;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 4px;
+            color: #f1f5f9;
+        }
+
+        .subhead {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 40px;
+            border-right: 4px solid #38bdf8;
+            padding-right: 16px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 55px;
+            border-bottom: 2px solid #1e293b;
+            padding-bottom: 14px;
+            color: #e2e8f0;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 38px;
+            color: #38bdf8;
+        }
+
+        h4 {
+            font-size: 18px;
+            margin-top: 28px;
+            color: #7dd3fc;
+        }
+
+        p {
+            line-height: 2;
+            font-size: 16px;
+            color: #cbd5f5;
+        }
+
+        .card {
+            background: #020617;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            padding: 20px 26px;
+            margin: 16px 0 24px;
+        }
+
+        .method-item {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #0f172a;
+        }
+
+        .method-item:last-child {
+            border-bottom: none;
+        }
+
+        .method-name {
+            font-family: monospace;
+            color: #7dd3fc;
+            font-size: 16px;
+            min-width: 200px;
+            font-weight: 600;
+        }
+
+        .method-desc {
+            color: #cbd5f5;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .method-params {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .badge {
+            background: #1e293b;
+            padding: 2px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: #94a3b8;
+            margin-left: 8px;
+        }
+
+        pre {
+            background: #0b1120;
+            padding: 16px 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            border: 1px solid #1e293b;
+            direction: ltr;
+            text-align: left;
+            font-size: 14px;
+            color: #7dd3fc;
+            margin: 12px 0;
+            line-height: 1.8;
+        }
+
+        code {
+            color: #7dd3fc;
+            background: #0b1120;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .example-box {
+            background: #0b1120;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 16px 0;
+        }
+
+        .example-box h4 {
+            margin-top: 0;
+            color: #facc15;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                height: auto;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                border-left: none;
+                border-bottom: 1px solid #1e293b;
+                max-height: 400px;
+            }
+            .main {
+                height: auto;
+                padding: 20px;
+            }
+            .method-item {
+                flex-direction: column;
+                gap: 4px;
+            }
+            .method-name {
+                min-width: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="brand">
-        <h1>BaleNull Documentation</h1>
-        <p>مرجع کامل کتابخانه بله‌نال — شامل Session، BaleBot، BaleClient، APIها، مثال‌ها و ۸ سورس طلایی.</p>
-      </div>
 
-      <input class="search" type="text" placeholder="جستجو در داکیومنت..." oninput="filterSections(this.value)"/>
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar">
+        <div class="logo">
+            BaleNull
+            <small>توسط Henry (آرتین طهماسبی)</small>
+        </div>
 
-      <div class="nav">
-        <div class="nav-group">
-          <div class="nav-title">خانه</div>
-          <a href="#intro">مقدمه</a>
-          <a href="#core">مفاهیم پایه</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-title">Session</div>
-          <a href="#session">مدیریت Session</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-title">BaleBot</div>
-          <a href="#bot-messages">ارسال پیام</a>
-          <a href="#bot-mgmt">مدیریت پیام</a>
-          <a href="#bot-info">اطلاعات و وب‌هوک</a>
-          <a href="#bot-events">رویدادها</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-title">BaleClient</div>
-          <a href="#user-login">ورود و سشن</a>
-          <a href="#user-actions">وضعیت و اکشن‌ها</a>
-          <a href="#user-chats">چت‌ها و تاریخچه</a>
-          <a href="#user-contacts">مخاطبین و مدیریت</a>
-        </div>
-        <div class="nav-group">
-          <div class="nav-title">مثال‌ها</div>
-          <a href="#examples">۸ سورس طلایی</a>
-          <a href="#advanced">نکات پیشرفته</a>
-        </div>
-      </div>
-    </aside>
+        <div class="category">📘 مفاهیم پایه</div>
+        <a href="#intro">معرفی کتابخانه</a>
+        <a href="#install">نصب و راه‌اندازی</a>
+        <a href="#client">ساخت Client</a>
+        <a href="#handlers">هندلر پیام</a>
+        <a href="#message-object">شیء Message</a>
 
-    <main class="content">
-      <section id="intro" class="hero section">
-        <span class="badge">V 2.5.0 · 2026</span>
-        <h2>مرجع رسمی و کامل BaleNull</h2>
-        <p class="lead">
-          این سند، ترکیب کامل دو نسخه داکیومنت BaleNull است و با هدف حفظ همه قابلیت‌ها، همه متدها، همه مثال‌ها و همه توضیحات تهیه شده است.
-          در این نسخه، هم مدیریت Session، هم متدهای ربات و هم متدهای کلاینت کاربری به‌صورت یکپارچه و دسته‌بندی‌شده ارائه شده‌اند.
+        <div class="category">📤 ارسال پیام</div>
+        <a href="#send-messages">متدهای ارسال پیام <span class="badge-count">۱۷</span></a>
+
+        <div class="category">✏️ ویرایش و حذف</div>
+        <a href="#edit-delete">ویرایش و حذف <span class="badge-count">۸</span></a>
+
+        <div class="category">👍 واکنش و گزارش</div>
+        <a href="#reactions">واکنش‌ها و گزارش <span class="badge-count">۷</span></a>
+
+        <div class="category">👥 مدیریت چت</div>
+        <a href="#chat-management">مدیریت چت <span class="badge-count">۳۲</span></a>
+
+        <div class="category">📂 فایل و وب‌هوک</div>
+        <a href="#file-webhook">فایل و وب‌هوک <span class="badge-count">۱۰</span></a>
+
+        <div class="category">🎮 مینی‌اپ و کیبورد</div>
+        <a href="#mini-app">مینی‌اپ و کیبورد <span class="badge-count">۱۲</span></a>
+
+        <div class="category">📊 نظرسنجی و استیکر</div>
+        <a href="#polls-stickers">نظرسنجی و استیکر <span class="badge-count">۱۰</span></a>
+
+        <div class="category">🔧 سایر متدها</div>
+        <a href="#other">سایر متدها <span class="badge-count">۲۰</span></a>
+
+        <div class="category">💻 نمونه کدها</div>
+        <a href="#examples">نمونه کدهای کامل</a>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <div class="main">
+
+        <h1>📘 مستندات کامل BaleNull</h1>
+        <div class="subhead">توسط Henry (آرتین طهماسبی) • بیش از ۱۲۰ متد • توضیحات کامل و مثال</div>
+
+        <!-- ========================================================= -->
+        <h2 id="intro">معرفی کتابخانه</h2>
+        <p>
+            <strong>BaleNull</strong> یک کتابخانه قدرتمند و آسان برای ساخت ربات در پیام‌رسان بله است.
+            این کتابخانه توسط <strong>Henry (آرتین طهماسبی)</strong> توسعه داده شده و تمام امکانات API رسمی بله را پوشش می‌دهد.
         </p>
-      </section>
-
-      <section id="core" class="section">
-        <h3>فصل ۱: مفاهیم پایه</h3>
-        <div class="grid">
-          <div class="method">
-            <div class="name">API Token</div>
-            <div class="desc">توکن اصلی ربات برای ارتباط با API بله و ارسال درخواست‌ها.</div>
-          </div>
-          <div class="method">
-            <div class="name">Long Polling</div>
-            <div class="desc">روش دریافت آپدیت‌ها با `get_updates` و حلقه `run`.</div>
-          </div>
-          <div class="method">
-            <div class="name">Dispatcher & Handlers</div>
-            <div class="desc">سیستم ثبت هندلرها برای پردازش پیام‌ها و رویدادها.</div>
-          </div>
-          <div class="method">
-            <div class="name">Session (.bale)</div>
-            <div class="desc">فایل سشن رمز/کدگذاری‌شده برای ذخیره‌ی اطلاعات ورود و احراز هویت.</div>
-          </div>
-          <div class="method">
-            <div class="name">Asyncio</div>
-            <div class="desc">پایه اجرای ناهمگام برای ارتباط سریع و غیرمسدودکننده با API.</div>
-          </div>
+        <div class="card">
+            <p><strong>✨ ویژگی‌های کلیدی:</strong></p>
+            <ul style="padding-right: 20px; line-height: 2.2; color: #cbd5f5;">
+                <li>✅ بیش از ۱۲۰ متد کاربردی</li>
+                <li>✅ پشتیبانی از مینی‌اپ (Web App)</li>
+                <li>✅ کیبوردهای خطی و شیشه‌ای</li>
+                <li>✅ ارسال انواع فایل (عکس، ویدیو، صدا، سند)</li>
+                <li>✅ مدیریت کامل چت (بن، آنبن، ترفیع، محدودیت)</li>
+                <li>✅ نظرسنجی، استیکر، بازی و پرداخت</li>
+                <li>✅ وب‌هوک و Polling</li>
+            </ul>
         </div>
-      </section>
 
-      <section id="session" class="section">
-        <h3>فصل ۲: مدیریت Session</h3>
-        <div class="method"><div class="name">create(phone, auth_token)</div><div class="desc">ساخت سشن جدید و ذخیره شماره تلفن و توکن احراز هویت.</div></div>
-        <div class="method"><div class="name">save()</div><div class="desc">ذخیره اطلاعات سشن در فایل `.bale`.</div></div>
-        <div class="method"><div class="name">load()</div><div class="desc">بارگذاری سشن از فایل و بازیابی داده‌های قبلی.</div></div>
-        <div class="method"><div class="name">export_string()</div><div class="desc">خروجی گرفتن از سشن به‌صورت رشته Base64.</div></div>
-        <div class="method"><div class="name">import_string(session_string)</div><div class="desc">وارد کردن سشن از رشته و ذخیره در حافظه/فایل.</div></div>
-      </section>
+        <h2 id="install">نصب و راه‌اندازی</h2>
+        <pre>pip install balenull</pre>
+        <p>برای نصب آخرین نسخه از PyPI استفاده کنید.</p>
 
-      <section id="bot-messages" class="section">
-        <h3>فصل ۲: متدهای BaleBot - ارسال پیام</h3>
-        <div class="method"><div class="name">send_message(chat_id, text, reply_to_message_id=None, reply_markup=None)</div><div class="desc">ارسال پیام متنی.</div></div>
-        <div class="method"><div class="name">send_photo(chat_id, photo, caption=None)</div><div class="desc">ارسال تصویر همراه با کپشن.</div></div>
-        <div class="method"><div class="name">send_audio(chat_id, audio, caption=None)</div><div class="desc">ارسال فایل صوتی.</div></div>
-        <div class="method"><div class="name">send_video(chat_id, video, caption=None)</div><div class="desc">ارسال ویدیو.</div></div>
-        <div class="method"><div class="name">send_animation(chat_id, animation, caption=None)</div><div class="desc">ارسال گیف/انیمیشن.</div></div>
-        <div class="method"><div class="name">send_document(chat_id, document, caption=None)</div><div class="desc">ارسال فایل سند.</div></div>
-        <div class="method"><div class="name">send_voice(chat_id, voice, caption=None)</div><div class="desc">ارسال پیام صوتی.</div></div>
-        <div class="method"><div class="name">send_sticker(chat_id, sticker)</div><div class="desc">ارسال استیکر.</div></div>
-        <div class="method"><div class="name">send_location(chat_id, lat, long)</div><div class="desc">ارسال موقعیت مکانی.</div></div>
-        <div class="method"><div class="name">send_contact(chat_id, phone, name)</div><div class="desc">ارسال مخاطب.</div></div>
-        <div class="method"><div class="name">send_media_group(chat_id, media)</div><div class="desc">ارسال گروهی رسانه‌ها / آلبوم.</div></div>
-      </section>
+        <h2 id="client">ساخت Client</h2>
+        <pre>from balenull import Client
 
-      <section id="bot-mgmt" class="section">
-        <h3>مدیریت پیام و تعامل</h3>
-        <div class="method"><div class="name">reply(text)</div><div class="desc">پاسخ مستقیم به پیام فعلی.</div></div>
-        <div class="method"><div class="name">delete()</div><div class="desc">حذف پیام فعلی.</div></div>
-        <div class="method"><div class="name">react(emoji)</div><div class="desc">افزودن واکنش به پیام.</div></div>
-        <div class="method"><div class="name">seen()</div><div class="desc">علامت‌گذاری به‌عنوان خوانده‌شده.</div></div>
-        <div class="method"><div class="name">report()</div><div class="desc">گزارش پیام فعلی.</div></div>
-        <div class="method"><div class="name">delete_message(chat_id, message_id)</div><div class="desc">حذف پیام مشخص در یک چت.</div></div>
-        <div class="method"><div class="name">edit_message_text(chat_id, message_id, text)</div><div class="desc">ویرایش متن پیام.</div></div>
-        <div class="method"><div class="name">edit_message_caption(chat_id, message_id, caption)</div><div class="desc">ویرایش کپشن پیام رسانه‌ای.</div></div>
-        <div class="method"><div class="name">edit_message_reply_markup(chat_id, message_id, reply_markup)</div><div class="desc">ویرایش کیبورد/ریپلای‌مارک‌آپ.</div></div>
-        <div class="method"><div class="name">report_message(chat_id, message_id)</div><div class="desc">ریپورت یک پیام خاص.</div></div>
-        <div class="method"><div class="name">add_to_saved(chat_id, message_id)</div><div class="desc">افزودن پیام به Saved Messages.</div></div>
-        <div class="method"><div class="name">view_message(chat_id, message_id)</div><div class="desc">ثبت مشاهده پیام.</div></div>
-        <div class="method"><div class="name">forward_message(from_chat_id, message_id, to_chat_id)</div><div class="desc">فوروارد پیام.</div></div>
-        <div class="method"><div class="name">copy_message(from_chat_id, message_id, to_chat_id)</div><div class="desc">کپی پیام.</div></div>
-      </section>
+bot = Client("YOUR_BOT_TOKEN")</pre>
+        <p>توکن ربات خود را از <a href="https://web.bale.ai" style="color:#38bdf8;">@BotFather</a> در بله دریافت کنید.</p>
 
-      <section id="bot-info" class="section">
-        <h3>اطلاعات، فایل و وب‌هوک</h3>
-        <div class="method"><div class="name">get_file(file_id)</div><div class="desc">گرفتن اطلاعات فایل.</div></div>
-        <div class="method"><div class="name">get_chat(chat_id)</div><div class="desc">گرفتن اطلاعات چت.</div></div>
-        <div class="method"><div class="name">get_me()</div><div class="desc">گرفتن اطلاعات خود ربات.</div></div>
-        <div class="method"><div class="name">send_chat_action(chat_id, action)</div><div class="desc">ارسال اکشن چت مثل typing یا upload_photo.</div></div>
-        <div class="method"><div class="name">set_webhook(url)</div><div class="desc">تنظیم وب‌هوک.</div></div>
-        <div class="method"><div class="name">delete_webhook()</div><div class="desc">حذف وب‌هوک.</div></div>
-        <div class="method"><div class="name">get_webhook_info()</div><div class="desc">دریافت اطلاعات وب‌هوک.</div></div>
-        <div class="method"><div class="name">download(file_path, save_as)</div><div class="desc">دانلود فایل از سرور فایل بله.</div></div>
-      </section>
+        <h2 id="handlers">هندلر پیام</h2>
+        <pre>@bot.on_message()
+async def handler(message):
+    print(f"پیام از {message.from_user.first_name}: {message.text}")</pre>
+        <p>هندلرها توابع ناهمگام (async) هستند و یک شیء <code>Message</code> دریافت می‌کنند.</p>
 
-      <section id="bot-events" class="section">
-        <h3>رویدادها و چرخه اجرا</h3>
-        <div class="method"><div class="name">get_updates(offset)</div><div class="desc">دریافت آپدیت‌های جدید.</div></div>
-        <div class="method"><div class="name">on_message()</div><div class="desc">ثبت هندلر پیام.</div></div>
-        <div class="method"><div class="name">run()</div><div class="desc">اجرای لوپ اصلی و پردازش دائمی رویدادها.</div></div>
-        <div class="method"><div class="name">connect()</div><div class="desc">ایجاد اتصال اولیه به API.</div></div>
-        <div class="method"><div class="name">close()</div><div class="desc">بستن اتصال و آزادسازی منابع.</div></div>
-        <div class="method"><div class="name">_request(method, data, files, http_method)</div><div class="desc">هسته‌ی ارسال درخواست HTTP به API.</div></div>
-      </section>
+        <h2 id="message-object">شیء Message</h2>
+        <div class="card">
+            <p>ویژگی‌های مهم شیء <code>message</code>:</p>
+            <ul style="padding-right: 20px; line-height: 2.2; color: #cbd5f5;">
+                <li><code>message.text</code> - متن پیام</li>
+                <li><code>message.chat_id</code> - شناسه چت</li>
+                <li><code>message.message_id</code> - شناسه پیام</li>
+                <li><code>message.from_user</code> - اطلاعات فرستنده</li>
+                <li><code>message.caption</code> - کپشن (برای رسانه‌ها)</li>
+                <li><code>message.photo</code> - لیست عکس‌ها</li>
+                <li><code>message.video</code> - اطلاعات ویدیو</li>
+                <li><code>message.audio</code> - اطلاعات صدا</li>
+                <li><code>message.document</code> - اطلاعات فایل</li>
+                <li><code>message.reply_to_message</code> - پیام پاسخ داده شده</li>
+            </ul>
+        </div>
 
-      <section id="user-login" class="section">
-        <h3>فصل ۲: متدهای BaleClient - ورود و سشن</h3>
-        <div class="method"><div class="name">send_code(phone)</div><div class="desc">ارسال کد ورود به شماره تلفن.</div></div>
-        <div class="method"><div class="name">sign_in(phone, code)</div><div class="desc">ورود به حساب با شماره و کد.</div></div>
-        <div class="method"><div class="name">export_session_string()</div><div class="desc">خروجی گرفتن از سشن به‌شکل رشته.</div></div>
-      </section>
+        <!-- ========================================================= -->
+        <h2 id="send-messages">📤 متدهای ارسال پیام (۱۷ متد)</h2>
 
-      <section id="user-actions" class="section">
-        <h3>وضعیت و اکشن‌ها</h3>
-        <div class="method"><div class="name">set_online()</div><div class="desc">آنلاین کردن حساب.</div></div>
-        <div class="method"><div class="name">set_offline()</div><div class="desc">آفل></div>
-        <></div>
-        <div class="method"><div class="name">get_status()</div><div class="desc">دریافت وضعیت آنلاین/آفلاین.</div></div>
-        <div class="method"><div class="name">typing(chat_id)</div><div class="desc">نمایش اکشن تایپ.</div></div>
-        <div class="method"><div class="name">upload_photo_action(chat_id)</div><div class="desc">اکشن آپلود عکس.</div></div>
-        <div class="method"><div class="name">upload_document_action(chat_id)</div><div class="desc">اکشن آپلود سند.</div></div>
-        <div class="method"><div class="name">record_voice_action(chat_id)</div><div class="desc">اکشن ضبط ویس.</div></div>
-      </section>
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">send_message</span>
+                <div>
+                    <div class="method-desc">ارسال پیام متنی با پشتیبانی از HTML و Markdown. پارامترهای مهم: chat_id, text, parse_mode, reply_to_message_id, reply_markup</div>
+                    <div class="method-params">مثال: <code>await bot.send_message(chat_id, "سلام", parse_mode="HTML")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_photo</span>
+                <div>
+                    <div class="method-desc">ارسال عکس با کپشن و قابلیت اسپویلر. پارامترها: chat_id, photo, caption, has_spoiler</div>
+                    <div class="method-params">مثال: <code>await bot.send_photo(chat_id, "photo.jpg", caption="عکس زیبا")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_audio</span>
+                <div>
+                    <div class="method-desc">ارسال فایل صوتی با عنوان، خواننده و مدت زمان. پارامترها: chat_id, audio, title, performer, duration</div>
+                    <div class="method-params">مثال: <code>await bot.send_audio(chat_id, "song.mp3", title="آهنگ", performer="خواننده")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_video</span>
+                <div>
+                    <div class="method-desc">ارسال ویدیو با پشتیبانی از استریم، اسپویلر و ابعاد. پارامترها: chat_id, video, caption, width, height, supports_streaming</div>
+                    <div class="method-params">مثال: <code>await bot.send_video(chat_id, "video.mp4", supports_streaming=True)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_document</span>
+                <div>
+                    <div class="method-desc">ارسال هر نوع فایل (PDF، ZIP، DOCX و غیره). پارامترها: chat_id, document, caption, thumb</div>
+                    <div class="method-params">مثال: <code>await bot.send_document(chat_id, "file.pdf", caption="مستند")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_animation</span>
+                <div>
+                    <div class="method-desc">ارسال فایل GIF یا انیمیشن. پارامترها: chat_id, animation, caption, duration, width, height</div>
+                    <div class="method-params">مثال: <code>await bot.send_animation(chat_id, "gif.gif", caption="حرکت")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_voice</span>
+                <div>
+                    <div class="method-desc">ارسال پیام صوتی (ویس) با مدت زمان. پارامترها: chat_id, voice, caption, duration</div>
+                    <div class="method-params">مثال: <code>await bot.send_voice(chat_id, "voice.ogg")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_sticker</span>
+                <div>
+                    <div class="method-desc">ارسال استیکر (WEBP یا PNG). پارامترها: chat_id, sticker</div>
+                    <div class="method-params">مثال: <code>await bot.send_sticker(chat_id, "sticker.webp")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_location</span>
+                <div>
+                    <div class="method-desc">ارسال موقعیت مکانی با طول و عرض جغرافیایی. پارامترها: chat_id, latitude, longitude</div>
+                    <div class="method-params">مثال: <code>await bot.send_location(chat_id, 35.6892, 51.3890)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_contact</span>
+                <div>
+                    <div class="method-desc">ارسال مخاطب با شماره و نام. پارامترها: chat_id, phone_number, first_name, last_name</div>
+                    <div class="method-params">مثال: <code>await bot.send_contact(chat_id, "09123456789", "علی")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_poll</span>
+                <div>
+                    <div class="method-desc">ارسال نظرسنجی با گزینه‌ها و تنظیمات. پارامترها: chat_id, question, options, is_anonymous, allows_multiple_answers</div>
+                    <div class="method-params">مثال: <code>await bot.send_poll(chat_id, "سوال؟", ["گزینه۱", "گزینه۲"])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_dice</span>
+                <div>
+                    <div class="method-desc">ارسال تاس یا بازی شانس (🎲، 🎯، 🏀، ⚽، 🎳، 🎰). پارامترها: chat_id, emoji</div>
+                    <div class="method-params">مثال: <code>await bot.send_dice(chat_id, emoji="🎲")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_media_group</span>
+                <div>
+                    <div class="method-desc">ارسال گروهی عکس‌ها یا ویدیوها (آلبوم). پارامترها: chat_id, media (لیست InputMedia)</div>
+                    <div class="method-params">مثال: <code>await bot.send_media_group(chat_id, [media1, media2])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_video_note</span>
+                <div>
+                    <div class="method-desc">ارسال ویدیوی گرد (دایره‌ای). پارامترها: chat_id, video_note, duration, length</div>
+                    <div class="method-params">مثال: <code>await bot.send_video_note(chat_id, "video.mp4", length=240)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_invoice</span>
+                <div>
+                    <div class="method-desc">ارسال فاکتور برای پرداخت. پارامترها: chat_id, title, description, payload, currency, prices</div>
+                    <div class="method-params">مثال: <code>await bot.send_invoice(chat_id, "محصول", "توضیحات", "payload", "IRT", [{"label": "قیمت", "amount": 10000}])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_game</span>
+                <div>
+                    <div class="method-desc">ارسال بازی. پارامترها: chat_id, game_short_name</div>
+                    <div class="method-params">مثال: <code>await bot.send_game(chat_id, "game_name")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">send_chat_action</span>
+                <div>
+                    <div class="method-desc">نمایش وضعیت تایپ، آپلود، ضبط و ... پارامترها: chat_id, action (typing, upload_photo, record_video, ...)</div>
+                    <div class="method-params">مثال: <code>await bot.send_chat_action(chat_id, "typing")</code></div>
+                </div>
+            </div>
+        </div>
 
-      <section id="user-chats" class="section">
-        <h3>چت‌ها و تاریخچه</h3>
-        <div class="method"><div class="name">get_dialogs()</div><div class="desc">گرفتن فهرست گفتگوها.</div></div>
-        <div class="method"><div class="name">get_history(chat_id, limit=50)</div><div class="desc">دریافت تاریخچه‌ی پیام‌های یک چت.</div></div>
-        <div class="method"><div class="name">search_messages(chat_id, query, limit=20)</div><div class="desc">جستجو در پیام‌ها.</div></div>
-        <div class="method"><div class="name">join_by_link(invite_link)</div><div class="desc">عضویت در گروه/کانال با لینک دعوت.</div></div>
-        <div class="method"><div class="name">leave_chat(chat_id)</div><div class="desc">خروج از چت.</div></div>
-      </section>
+        <!-- ========================================================= -->
+        <h2 id="edit-delete">✏️ ویرایش و حذف (۸ متد)</h2>
 
-      <section id="user-contacts" class="section">
-        <h3>مخاطبین و مدیریت چت</h3>
-        <div class="method"><div class="name">block_user(user_id)</div><div class="desc">بلاک کردن کاربر.</div></div>
-        <div class="method"><div class="name">unblock_user(user_id)</div><div class="desc">آنبلاک کردن کاربر.</div></div>
-        <div class="method"><div class="name">get_blocked_users()</div><div class="desc">لیست کاربران بلاک‌شده.</div></div>
-        <div class="method"><div class="name">get_contacts()</div><div class="desc">دریافت مخاطبین.</div></div>
-        <div class="method"><div class="name">get_common_chats(user_id)</div><div class="desc">دریافت چت‌های مشترک با کاربر.</div></div>
-        <div class="method"><div class="name">archive_chat(chat_id)</div><div class="desc">آرشیو کردن چت.</div></div>
-        <div class="method"><div class="name">unarchive_chat(chat_id)</div><div class="desc">خارج کردن چت از آرشیو.</div></div>
-        <div class="method"><div class="name">pin_chat(chat_id)</div><div class="desc">پین کردن چت.</div></div>
-        <div class="method"><div class="name">unpin_chat(chat class="desc">لغو میdesc">حذف پین چت.</div></div>
-        <div class="method"><div class="name">mute_chat(chat_id)</div><div class="desc">میوت کردن چت.</div></div>
-        <div class="method"><div class="name">unmute_chat(chat_id)</div><div class="desc">لغو میوت.</div></div>
-        <div class="method"><div class="name">mark_dialog_unread(chat_id)</div><div class="desc">علامت‌گذاری گفتگو به‌عنوان خوانده‌نشده.</div></div>
-      </section>
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">edit_message_text</span>
+                <div>
+                    <div class="method-desc">ویرایش متن یک پیام قبلی. پارامترها: chat_id, message_id, text, parse_mode</div>
+                    <div class="method-params">مثال: <code>await bot.edit_message_text(chat_id, message_id, "متن جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">edit_message_caption</span>
+                <div>
+                    <div class="method-desc">ویرایش کپشن رسانه. پارامترها: chat_id, message_id, caption, parse_mode</div>
+                    <div class="method-params">مثال: <code>await bot.edit_message_caption(chat_id, message_id, "کپشن جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">edit_message_reply_markup</span>
+                <div>
+                    <div class="method-desc">ویرایش کیبورد یا دکمه‌های پیام. پارامترها: chat_id, message_id, reply_markup</div>
+                    <div class="method-params">مثال: <code>await bot.edit_message_reply_markup(chat_id, message_id, new_markup)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">edit_message_media</span>
+                <div>
+                    <div class="method-desc">تعویض رسانه پیام با رسانه جدید. پارامترها: chat_id, message_id, media (InputMedia)</div>
+                    <div class="method-params">مثال: <code>await bot.edit_message_media(chat_id, message_id, new_media)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">edit_message_live_location</span>
+                <div>
+                    <div class="method-desc">ویرایش موقعیت زنده. پارامترها: chat_id, message_id, latitude, longitude</div>
+                    <div class="method-params">مثال: <code>await bot.edit_message_live_location(chat_id, message_id, 35.6892, 51.3890)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">stop_message_live_location</span>
+                <div>
+                    <div class="method-desc">توقف به‌روزرسانی موقعیت زنده. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.stop_message_live_location(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_message</span>
+                <div>
+                    <div class="method-desc">حذف یک پیام از چت. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.delete_message(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_webhook</span>
+                <div>
+                    <div class="method-desc">حذف وب‌هوک. پارامترها: drop_pending_updates</div>
+                    <div class="method-params">مثال: <code>await bot.delete_webhook(drop_pending_updates=True)</code></div>
+                </div>
+            </div>
+        </div>
 
-      <section id="examples" class="section">
-        <h3>فصل ۳: ۸ سورس طلایی</h3>
-        <div class="method"><div class="name">1) Echo Bot</div><div class="desc">پاسخ‌گویی خودکار به هر پیام با همان متن.</div></div>
-        <div class="method"><div class="name">2) Welcome Bot</div><div class="desc">خوش‌آمدگویی به اعضای جدید گروه.</div></div>
-        <div class="method"><div class="name">3) Anti-Badword</div><div class="desc">فیلترکردن کلمات نامناسب.</div></div>
-        <div class="method"><div class="name">4) Downloader</div><div class="desc">دانلود فایل‌ها و ذخیره روی دستگاه.</div></div>
-        <div class="method"><div class="name">5) Reaction Bot</div><div class="desc">افزودن واکنش خودکار به پیام‌ها.</div></div>
-        <div class="method"><div class="name">6) Forward Bot</div><div class="desc">فوروارد خودکار پیام‌ها به مقصد دیگر.</div></div>
-        <div class="method"><div class="name">7) Status Bot</div><div class="desc">مدیریت آنلاین/آفلاین کاربر.</div></div>
-        <div class="method"><div class="name">8) Auto-Report Bot</div><div class="desc">ریپورت خودکار پیام‌های هدف.</div></div>
+        <!-- ========================================================= -->
+        <h2 id="reactions">👍 واکنش‌ها و گزارش (۷ متد)</h2>
 
-        <div class="codebox">
-# نمونه‌ی Echo Bot
-from balenull import BaleBot
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">set_message_reaction</span>
+                <div>
+                    <div class="method-desc">تنظیم واکنش روی پیام با ایموجی. پارامترها: chat_id, message_id, reaction (لیست ایموجی‌ها)</div>
+                    <div class="method-params">مثال: <code>await bot.set_message_reaction(chat_id, message_id, ["❤️", "👍"])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_message_reaction</span>
+                <div>
+                    <div class="method-desc">دریافت واکنش‌های یک پیام. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_message_reaction(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">report_message</span>
+                <div>
+                    <div class="method-desc">گزارش پیام به ادمین‌های بله. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.report_message(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">view_message</span>
+                <div>
+                    <div class="method-desc">علامت مشاهده روی پیام بگذارید. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.view_message(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">add_to_saved</span>
+                <div>
+                    <div class="method-desc">ذخیره پیام در بخش ذخیره‌شده‌ها. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.add_to_saved(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">report_chat</span>
+                <div>
+                    <div class="method-desc">گزارش چت به ادمین‌های بله. پارامترها: chat_id, reason</div>
+                    <div class="method-params">مثال: <code>await bot.report_chat(chat_id, "هرزنامه")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">pin_message</span>
+                <div>
+                    <div class="method-desc">سنجاق کردن پیام در چت. پارامترها: chat_id, message_id, disable_notification</div>
+                    <div class="method-params">مثال: <code>await bot.pin_message(chat_id, message_id)</code></div>
+                </div>
+            </div>
+        </div>
 
-bot = BaleBot("YOUR_BOT_TOKEN")
+        <!-- ========================================================= -->
+        <h2 id="chat-management">👥 مدیریت چت (۳۲ متد)</h2>
+
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">get_chat</span>
+                <div>
+                    <div class="method-desc">دریافت اطلاعات کامل چت (نوع، عنوان، توضیحات، عکس). پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_chat(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_me</span>
+                <div>
+                    <div class="method-desc">دریافت اطلاعات ربات (آیدی، نام، یوزرنیم، توضیحات). بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_me()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_chat_administrators</span>
+                <div>
+                    <div class="method-desc">دریافت لیست ادمین‌های چت با نقش‌های آن‌ها. پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_chat_administrators(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_chat_member_count</span>
+                <div>
+                    <div class="method-desc">تعداد اعضای چت (گروه یا کانال). پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_chat_member_count(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_chat_member</span>
+                <div>
+                    <div class="method-desc">اطلاعات یک عضو خاص (نقش، وضعیت). پارامترها: chat_id, user_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_chat_member(chat_id, user_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">forward_message</span>
+                <div>
+                    <div class="method-desc">فوروارد پیام از یک چت به چت دیگر. پارامترها: chat_id, from_chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.forward_message(to_chat, from_chat, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">copy_message</span>
+                <div>
+                    <div class="method-desc">کپی محتوای پیام بدون شناسه اصلی. پارامترها: chat_id, from_chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.copy_message(to_chat, from_chat, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">unpin_message</span>
+                <div>
+                    <div class="method-desc">برداشتن سنجاق یک پیام. پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.unpin_message(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">unpin_all_chat_messages</span>
+                <div>
+                    <div class="method-desc">برداشتن سنجاق همه پیام‌های چت. پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.unpin_all_chat_messages(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">leave_chat</span>
+                <div>
+                    <div class="method-desc">خروج از چت (گروه یا کانال). پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.leave_chat(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_title</span>
+                <div>
+                    <div class="method-desc">تغییر عنوان چت. پارامترها: chat_id, title</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_title(chat_id, "عنوان جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_description</span>
+                <div>
+                    <div class="method-desc">تغییر توضیحات چت. پارامترها: chat_id, description</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_description(chat_id, "توضیحات جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_photo</span>
+                <div>
+                    <div class="method-desc">تغییر عکس چت. پارامترها: chat_id, photo</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_photo(chat_id, "photo.jpg")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_chat_photo</span>
+                <div>
+                    <div class="method-desc">حذف عکس چت. پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.delete_chat_photo(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_permissions</span>
+                <div>
+                    <div class="method-desc">تنظیم دسترسی‌های چت (ارسال پیام، رسانه و ...). پارامترها: chat_id, permissions</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_permissions(chat_id, {"can_send_messages": True})</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">export_chat_invite_link</span>
+                <div>
+                    <div class="method-desc">دریافت لینک دعوت چت. پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.export_chat_invite_link(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">create_chat_invite_link</span>
+                <div>
+                    <div class="method-desc">ساخت لینک دعوت جدید با تنظیمات (مدت زمان، تعداد استفاده). پارامترها: chat_id, expire_date, member_limit</div>
+                    <div class="method-params">مثال: <code>await bot.create_chat_invite_link(chat_id, expire_date=time.time()+3600)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">edit_chat_invite_link</span>
+                <div>
+                    <div class="method-desc">ویرایش لینک دعوت موجود. پارامترها: chat_id, invite_link, expire_date, member_limit</div>
+                    <div class="method-params">مثال: <code>await bot.edit_chat_invite_link(chat_id, "link", member_limit=10)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">revoke_chat_invite_link</span>
+                <div>
+                    <div class="method-desc">لغو و غیرفعال کردن لینک دعوت. پارامترها: chat_id, invite_link</div>
+                    <div class="method-params">مثال: <code>await bot.revoke_chat_invite_link(chat_id, "link")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">ban_chat_member</span>
+                <div>
+                    <div class="method-desc">بن کردن کاربر از چت (با امکان حذف پیام‌ها). پارامترها: chat_id, user_id, until_date, revoke_messages</div>
+                    <div class="method-params">مثال: <code>await bot.ban_chat_member(chat_id, user_id, until_date=time.time()+86400)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">unban_chat_member</span>
+                <div>
+                    <div class="method-desc">لغو بن کاربر. پارامترها: chat_id, user_id, only_if_banned</div>
+                    <div class="method-params">مثال: <code>await bot.unban_chat_member(chat_id, user_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">restrict_chat_member</span>
+                <div>
+                    <div class="method-desc">محدود کردن کاربر در چت (تنظیم دسترسی‌ها). پارامترها: chat_id, user_id, permissions, until_date</div>
+                    <div class="method-params">مثال: <code>await bot.restrict_chat_member(chat_id, user_id, {"can_send_messages": False})</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">promote_chat_member</span>
+                <div>
+                    <div class="method-desc">ترفیع کاربر به ادمین با تنظیم حقوق. پارامترها: chat_id, user_id, can_change_info, can_delete_messages, ...</div>
+                    <div class="method-params">مثال: <code>await bot.promote_chat_member(chat_id, user_id, can_delete_messages=True)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_administrator_custom_title</span>
+                <div>
+                    <div class="method-desc">تنظیم عنوان سفارشی برای ادمین. پارامترها: chat_id, user_id, custom_title</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_administrator_custom_title(chat_id, user_id, "مدیر ارشد")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">approve_chat_join_request</span>
+                <div>
+                    <div class="method-desc">تایید درخواست عضویت در چت خصوصی. پارامترها: chat_id, user_id</div>
+                    <div class="method-params">مثال: <code>await bot.approve_chat_join_request(chat_id, user_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">decline_chat_join_request</span>
+                <div>
+                    <div class="method-desc">رد درخواست عضویت در چت خصوصی. پارامترها: chat_id, user_id</div>
+                    <div class="method-params">مثال: <code>await bot.decline_chat_join_request(chat_id, user_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_sticker_set</span>
+                <div>
+                    <div class="method-desc">تنظیم مجموعه استیکر برای چت. پارامترها: chat_id, sticker_set_name</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_sticker_set(chat_id, "sticker_set")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_chat_sticker_set</span>
+                <div>
+                    <div class="method-desc">حذف مجموعه استیکر چت. پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.delete_chat_sticker_set(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">create_forum_topic</span>
+                <div>
+                    <div class="method-desc">ساخت تاپیک جدید در انجمن. پارامترها: chat_id, name, icon_color</div>
+                    <div class="method-params">مثال: <code>await bot.create_forum_topic(chat_id, "تاپیک جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">edit_forum_topic</span>
+                <div>
+                    <div class="method-desc">ویرایش تاپیک انجمن (نام، آیکون). پارامترها: chat_id, message_thread_id, name, icon_custom_emoji_id</div>
+                    <div class="method-params">مثال: <code>await bot.edit_forum_topic(chat_id, thread_id, "نام جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">close_forum_topic</span>
+                <div>
+                    <div class="method-desc">بستن تاپیک انجمن. پارامترها: chat_id, message_thread_id</div>
+                    <div class="method-params">مثال: <code>await bot.close_forum_topic(chat_id, thread_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">reopen_forum_topic</span>
+                <div>
+                    <div class="method-desc">باز کردن مجدد تاپیک بسته شده. پارامترها: chat_id, message_thread_id</div>
+                    <div class="method-params">مثال: <code>await bot.reopen_forum_topic(chat_id, thread_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_forum_topic</span>
+                <div>
+                    <div class="method-desc">حذف تاپیک انجمن. پارامترها: chat_id, message_thread_id</div>
+                    <div class="method-params">مثال: <code>await bot.delete_forum_topic(chat_id, thread_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">unpin_all_forum_topic_messages</span>
+                <div>
+                    <div class="method-desc">برداشتن سنجاق همه پیام‌های تاپیک. پارامترها: chat_id, message_thread_id</div>
+                    <div class="method-params">مثال: <code>await bot.unpin_all_forum_topic_messages(chat_id, thread_id)</code></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <h2 id="file-webhook">📂 فایل و وب‌هوک (۱۰ متد)</h2>
+
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">get_file</span>
+                <div>
+                    <div class="method-desc">دریافت اطلاعات فایل (مسیر، حجم) با استفاده از file_id. پارامترها: file_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_file(file_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">download</span>
+                <div>
+                    <div class="method-desc">دانلود فایل از سرور بله در مسیر مشخص. پارامترها: file_path, save_as</div>
+                    <div class="method-params">مثال: <code>await bot.download(file_path, "local.jpg")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">upload_file</span>
+                <div>
+                    <div class="method-desc">آپلود فایل به سرور بله. پارامترها: file_path, file_type</div>
+                    <div class="method-params">مثال: <code>await bot.upload_file("photo.jpg", "photo")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_webhook</span>
+                <div>
+                    <div class="method-desc">تنظیم وب‌هوک برای دریافت آپدیت‌ها به صورت HTTP. پارامترها: url, max_connections, allowed_updates</div>
+                    <div class="method-params">مثال: <code>await bot.set_webhook("https://your-server.com/webhook")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_webhook</span>
+                <div>
+                    <div class="method-desc">حذف وب‌هوک و بازگشت به Polling. پارامترها: drop_pending_updates</div>
+                    <div class="method-params">مثال: <code>await bot.delete_webhook(drop_pending_updates=True)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_webhook_info</span>
+                <div>
+                    <div class="method-desc">دریافت وضعیت و اطلاعات وب‌هوک فعلی. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_webhook_info()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_updates</span>
+                <div>
+                    <div class="method-desc">دریافت آپدیت‌ها با روش Polling (برای ربات‌های بدون وب‌هوک). پارامترها: offset, limit, timeout</div>
+                    <div class="method-params">مثال: <code>await bot.get_updates(offset=0, limit=100)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">log_out</span>
+                <div>
+                    <div class="method-desc">خروج از حساب ربات (بستن نشست). بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.log_out()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">close_bot</span>
+                <div>
+                    <div class="method-desc">بستن ربات و آزادسازی منابع. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.close_bot()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_file_url</span>
+                <div>
+                    <div class="method-desc">دریافت لینک مستقیم دانلود فایل. پارامترها: file_path</div>
+                    <div class="method-params">مثال: <code>await bot.get_file_url(file_path)</code></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <h2 id="mini-app">🎮 مینی‌اپ و کیبورد (۱۲ متد)</h2>
+
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">send_web_app</span>
+                <div>
+                    <div class="method-desc">ارسال دکمه‌ای که یک مینی‌اپ (برنامه وب) را باز می‌کند. پارامترها: chat_id, text, web_app_url</div>
+                    <div class="method-params">مثال: <code>await bot.send_web_app(chat_id, "باز کردن اپ", "https://app.com")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">open_web_app</span>
+                <div>
+                    <div class="method-desc">باز کردن مستقیم مینی‌اپ با دکمه. پارامترها: chat_id, web_app_url</div>
+                    <div class="method-params">مثال: <code>await bot.open_web_app(chat_id, "https://app.com")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">inline_keyboard</span>
+                <div>
+                    <div class="method-desc">ساخت کیبورد خطی با دکمه‌های قابل کلیک (callback_data, url, web_app). پارامترها: buttons (لیست لیست دکمه‌ها)</div>
+                    <div class="method-params">مثال: <code>markup = InlineKeyboardMarkup([[button1, button2]])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">reply_keyboard</span>
+                <div>
+                    <div class="method-desc">کیبورد شیشه‌ای برای پاسخ سریع کاربر با دکمه‌های متنی. پارامترها: keyboard, resize_keyboard, one_time_keyboard</div>
+                    <div class="method-params">مثال: <code>markup = ReplyKeyboardMarkup([["سلام", "خداحافظ"]])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">force_reply</span>
+                <div>
+                    <div class="method-desc">اجبار کاربر به پاسخ به پیام (نمایش باکس پاسخ). پارامترها: force_reply, selective</div>
+                    <div class="method-params">مثال: <code>markup = ForceReply(force_reply=True)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">remove_keyboard</span>
+                <div>
+                    <div class="method-desc">حذف کیبورد از صفحه چت. پارامترها: remove_keyboard, selective</div>
+                    <div class="method-params">مثال: <code>markup = ReplyKeyboardRemove(remove_keyboard=True)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">answer_callback_query</span>
+                <div>
+                    <div class="method-desc">پاسخ به کلیک دکمه خطی (نمایش پیام یا آلرت). پارامترها: callback_query_id, text, show_alert, url</div>
+                    <div class="method-params">مثال: <code>await bot.answer_callback_query(callback_id, "پاسخ شما")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">answer_inline_query</span>
+                <div>
+                    <div class="method-desc">پاسخ به درخواست اینلاین (نتایج جستجو). پارامترها: inline_query_id, results, cache_time</div>
+                    <div class="method-params">مثال: <code>await bot.answer_inline_query(query_id, results, cache_time=300)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_chat_menu_button</span>
+                <div>
+                    <div class="method-desc">تنظیم دکمه منوی چت (برای باز کردن مینی‌اپ). پارامترها: chat_id, menu_button (با url یا web_app)</div>
+                    <div class="method-params">مثال: <code>await bot.set_chat_menu_button(chat_id, {"web_app": {"url": "https://app.com"}})</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_chat_menu_button</span>
+                <div>
+                    <div class="method-desc">دریافت دکمه منوی فعلی چت. پارامترها: chat_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_chat_menu_button(chat_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">callback_button</span>
+                <div>
+                    <div class="method-desc">ساخت دکمه با callback_data (برای پاسخ‌های تعاملی). پارامترها: text, callback_data</div>
+                    <div class="method-params">مثال: <code>btn = InlineKeyboardButton("کلیک", callback_data="click")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">web_app_button</span>
+                <div>
+                    <div class="method-desc">ساخت دکمه بازکننده مینی‌اپ. پارامترها: text, web_app_url</div>
+                    <div class="method-params">مثال: <code>btn = InlineKeyboardButton("اپ", web_app={"url": "https://app.com"})</code></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <h2 id="polls-stickers">📊 نظرسنجی و استیکر (۱۰ متد)</h2>
+
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">stop_poll</span>
+                <div>
+                    <div class="method-desc">توقف نظرسنجی و نمایش نتایج نهایی. پارامترها: chat_id, message_id, reply_markup</div>
+                    <div class="method-params">مثال: <code>await bot.stop_poll(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_sticker_set</span>
+                <div>
+                    <div class="method-desc">دریافت اطلاعات مجموعه استیکر (نام، تعداد، نوع). پارامترها: name</div>
+                    <div class="method-params">مثال: <code>await bot.get_sticker_set("set_name")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">upload_sticker_file</span>
+                <div>
+                    <div class="method-desc">آپلود فایل برای ساخت استیکر (فقط PNG یا WEBP). پارامترها: user_id, sticker, sticker_format</div>
+                    <div class="method-params">مثال: <code>await bot.upload_sticker_file(user_id, "sticker.png", "static")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">create_new_sticker_set</span>
+                <div>
+                    <div class="method-desc">ساخت مجموعه استیکر جدید با لیست استیکرها. پارامترها: user_id, name, title, stickers, sticker_format</div>
+                    <div class="method-params">مثال: <code>await bot.create_new_sticker_set(user_id, "set", "عنوان", stickers)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">add_sticker_to_set</span>
+                <div>
+                    <div class="method-desc">اضافه کردن استیکر به مجموعه موجود. پارامترها: user_id, name, sticker, emoji_list</div>
+                    <div class="method-params">مثال: <code>await bot.add_sticker_to_set(user_id, "set", sticker, ["😊"])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_sticker_position_in_set</span>
+                <div>
+                    <div class="method-desc">جابجایی استیکر در مجموعه (تغییر ترتیب). پارامترها: sticker, position</div>
+                    <div class="method-params">مثال: <code>await bot.set_sticker_position_in_set(sticker_file_id, 0)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_sticker_from_set</span>
+                <div>
+                    <div class="method-desc">حذف استیکر از مجموعه. پارامترها: sticker</div>
+                    <div class="method-params">مثال: <code>await bot.delete_sticker_from_set(sticker_file_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_sticker_emoji_list</span>
+                <div>
+                    <div class="method-desc">تغییر ایموجی‌های یک استیکر. پارامترها: sticker, emoji_list</div>
+                    <div class="method-params">مثال: <code>await bot.set_sticker_emoji_list(sticker_file_id, ["❤️"])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_poll</span>
+                <div>
+                    <div class="method-desc">دریافت اطلاعات نظرسنجی (نتایج). پارامترها: chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_poll(chat_id, message_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_poll_votes</span>
+                <div>
+                    <div class="method-desc">دریافت لیست رای‌دهندگان نظرسنجی. پارامترها: chat_id, message_id, option_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_poll_votes(chat_id, message_id, 0)</code></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <h2 id="other">🔧 سایر متدها (۲۰ متد)</h2>
+
+        <div class="card">
+            <div class="method-item">
+                <span class="method-name">set_my_commands</span>
+                <div>
+                    <div class="method-desc">تنظیم لیست دستورات ربات (نمایش در منوی /). پارامترها: commands (لیست دیکشنری‌های command و description)</div>
+                    <div class="method-params">مثال: <code>await bot.set_my_commands([{"command": "start", "description": "شروع"}])</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_my_commands</span>
+                <div>
+                    <div class="method-desc">دریافت لیست دستورات فعلی ربات. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_my_commands()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">delete_my_commands</span>
+                <div>
+                    <div class="method-desc">حذف همه دستورات ربات. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.delete_my_commands()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_my_description</span>
+                <div>
+                    <div class="method-desc">تنظیم توضیح کامل ربات (حداکثر ۵۱۲ کاراکتر). پارامترها: description</div>
+                    <div class="method-params">مثال: <code>await bot.set_my_description("توضیحات ربات")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_my_description</span>
+                <div>
+                    <div class="method-desc">دریافت توضیح کامل ربات. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_my_description()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_my_short_description</span>
+                <div>
+                    <div class="method-desc">تنظیم توضیح کوتاه ربات (حداکثر ۱۲۰ کاراکتر). پارامترها: short_description</div>
+                    <div class="method-params">مثال: <code>await bot.set_my_short_description("توضیح کوتاه")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_my_short_description</span>
+                <div>
+                    <div class="method-desc">دریافت توضیح کوتاه ربات. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_my_short_description()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_my_name</span>
+                <div>
+                    <div class="method-desc">تنظیم نام ربات (حداکثر ۶۴ کاراکتر). پارامترها: name</div>
+                    <div class="method-params">مثال: <code>await bot.set_my_name("نام جدید")</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_my_name</span>
+                <div>
+                    <div class="method-desc">دریافت نام ربات. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_my_name()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_my_default_administrator_rights</span>
+                <div>
+                    <div class="method-desc">تنظیم حقوق پیش‌فرض ادمین برای ربات. پارامترها: rights (دیکشنری حقوق)</div>
+                    <div class="method-params">مثال: <code>await bot.set_my_default_administrator_rights({"can_delete_messages": True})</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_my_default_administrator_rights</span>
+                <div>
+                    <div class="method-desc">دریافت حقوق پیش‌فرض ادمین. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_my_default_administrator_rights()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_user_profile_photos</span>
+                <div>
+                    <div class="method-desc">دریافت عکس‌های پروفایل کاربر. پارامترها: user_id, offset, limit</div>
+                    <div class="method-params">مثال: <code>await bot.get_user_profile_photos(user_id, limit=10)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_passport_data_errors</span>
+                <div>
+                    <div class="method-desc">ثبت خطاهای گذرنامه (برای احراز هویت). پارامترها: user_id, errors</div>
+                    <div class="method-params">مثال: <code>await bot.set_passport_data_errors(user_id, errors)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_invoice_link</span>
+                <div>
+                    <div class="method-desc">دریافت لینک پرداخت فاکتور. پارامترها: invoice_data</div>
+                    <div class="method-params">مثال: <code>await bot.get_invoice_link(data)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_star_transactions</span>
+                <div>
+                    <div class="method-desc">دریافت تراکنش‌های ستاره (برای پرداخت‌ها). پارامترها: limit, offset</div>
+                    <div class="method-params">مثال: <code>await bot.get_star_transactions(limit=50)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_game_high_scores</span>
+                <div>
+                    <div class="method-desc">دریافت امتیازهای بازی. پارامترها: user_id, chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.get_game_high_scores(user_id)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">set_game_score</span>
+                <div>
+                    <div class="method-desc">ثبت امتیاز بازی برای کاربر. پارامترها: user_id, score, chat_id, message_id</div>
+                    <div class="method-params">مثال: <code>await bot.set_game_score(user_id, 1000)</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_birthdays</span>
+                <div>
+                    <div class="method-desc">دریافت لیست تولدهای کاربران. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_birthdays()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">get_chat_folders</span>
+                <div>
+                    <div class="method-desc">دریافت پوشه‌های چت کاربر. بدون پارامتر</div>
+                    <div class="method-params">مثال: <code>await bot.get_chat_folders()</code></div>
+                </div>
+            </div>
+            <div class="method-item">
+                <span class="method-name">add_chat_to_folder</span>
+                <div>
+                    <div class="method-desc">اضافه کردن چت به پوشه. پارامترها: chat_id, folder_id</div>
+                    <div class="method-params">مثال: <code>await bot.add_chat_to_folder(chat_id, folder_id)</code></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <h2 id="examples">💻 نمونه کدهای کامل</h2>
+
+        <h3>ربات حاضر جواب (Echo Bot)</h3>
+        <div class="example-box">
+            <pre>from balenull import Client
+
+bot = Client("TOKEN")
 
 @bot.on_message()
-async def handler(msg):
-    await msg.reply(msg.text or "Empty")
+async def echo(message):
+    # پاسخ با همان متن
+    await message.reply(message.text)
 
-bot.run()
+bot.run()</pre>
         </div>
-      </section>
 
-      <section id="advanced" class="section">
-        <h3>نکات پیشرفته</h3>
-        <p class="lead">
-          - برای پروژه‌های بزرگ، هندلرها را ماژولار نگه دارید.
-          <br>- سشن را امن نگه دارید و فایل `.bale` را در نسخه‌ کنترل قرار ندهید.
-          <br>- در متدهای فایل، خطاهای شبکه و MIME type را کنترل کنید.
-          <br>- برای عملکرد بهتر، از `asyncio` و صف پردازش رویدادها استفاده>
-      </section>
+        <h3>ربات با دکمه و مینی‌اپ</h3>
+        <div class="example-box">
+            <pre>from balenull import Client, InlineKeyboardMarkup, InlineKeyboardButton
 
-      <div class="footer">طراحی شده با ❤️ توسط Henry | BaleNull Project 2026</div>
-    </main>
-  </div>
+bot = Client("TOKEN")
 
-  <script>
-    function filterSections(q){
-      q = q){
-      q = q.toLowerCase().trim();
-      const sections = document.querySelectorAll('.section, .hero');
-      sections.forEach(sec => {
-        const text = sec.innerText.toLowerCase();
-        sec.style.display = text.includes(q) ? '' : 'none';
-      });
-    }
-  </script>
-</body>
-</html>
+@bot.on_message()
+async def start(message):
+    if message.text == "/start":
+        # ساخت دکمه با مینی‌اپ
+        btn = InlineKeyboardButton(
+            "باز کردن اپ",
+            web_app={"url": "https://my-app.com"}
+        )
+        markup = InlineKeyboardMarkup([[btn]])
+        
+        await bot.send_message(
+            message.chat_id,
+            "به ربات خوش آمدید!",
+            reply_markup=markup
