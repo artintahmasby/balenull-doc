@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BaleNull Documentation | مرجع کامل و رسمی</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --bg2:#111a33;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.09);
+      --text:#eaf0ff;
+      --muted:#b8c3e6;
+      --accent:#7c5cff;
+      --accent2:#35d0ba;
+      --danger:#ff5d7a;
+      --border:rgba(255,255,255,.12);
+      --shadow:0 12px 35px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Tahoma, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(124,92,255,.22), transparent 28%),
+        radial-gradient(circle at top left, rgba(53,208,186,.16), transparent 25%),
+        linear-gradient(180deg, var(--bg), #060913 100%);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .layout{
+      display:flex;
+      min-height:100vh;
+    }
+    .sidebar{
+      width:290px;
+      position:sticky;
+      top:0;
+      height:100vh;
+      overflow:auto;
+      padding:22px 18px;
+      background:rgba(9,13,28,.72);
+      backdrop-filter: blur(16px);
+      border-left:1px solid var(--border);
+    }
+    .brand{
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(53,208,186,.10));
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+    }
+    .brand h1{margin:0 0 8px;font-size:22px}
+    .brand p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .search{
+      width:100%;
+      border:none;
+      outline:none;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border:1px solid var(--border);
+      margin:14px 0 18px;
+    }
+    .nav-group{margin-bottom:18px}
+    .nav-title{
+      font-size:12px;
+      letter-spacing:.4px;
+      color:#9fb0e8;
+      margin:14px 8px 10px;
+      text-transform:uppercase;
+    }
+    .nav a{
+      display:block;
+      padding:12px 14px;
+      border-radius:12px;
+      margin-bottom:8px;
+      color:var(--muted);
+      background:transparent;
+      border:1px solid transparent;
+      transition:.2s;
+    }
+    .nav a:hover{
+      background:var(--card);
+      border-color:var(--border);
+      color:var(--text);
+      transform:translateX(-2px);
+    }
+    .content{
+      flex:1;
+      padding:28px;
+      max-width:calc(100% - 290px);
+    }
+    .hero{
+      padding:28px;
+      border-radius:24px;
+      border:1px solid var(--border);
+      background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+    .hero h2{margin:0 0 10px;font-size:28px}
+    .hero p{margin:0;color:var(--muted);line-height:1.9}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:16px;
+    }
+    .section{
+      margin-bottom:28px;
+      padding:22px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:rgba(255,255,255,.035);
+      box-shadow:var(--shadow);
+    }
+    .section h3{
+      margin:0 0 14px;
+      font-size:22px;
+      color:#fff;
+    }
+    .section p.lead{
+      color:var(--muted);
+      line-height:1.9;
+      margin:0 0 16px;
+    }
+    .method{
+      padding:14px 15px;
+      border-radius:16px;
+      background:var(--card);
+      border:1px solid var(--border);
+      margin-bottom:12px;
+    }
+    .method .name{
+      font-weight:700;
+      color:#fff;
+      margin-bottom:6px;
+      font-size:14px;
+      direction:ltr;
+      text-align:left;
+    }
+    .method .desc{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:13px;
+    }
+    .badge{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      background:rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.35);
+      color:#d9d2ff;
+      margin:0 0 12px;
+    }
+    .codebox{
+      background:#060913;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:16px;
+      overflow:auto;
+      direction:ltr;
+      text-align:left;
+      color:#dff7ff;
+      line-height:1.8;
+      margin:14px 0;
+      white-space:pre-wrap;
+    }
+    .footer{
+      text-align:center;
+      color:var(--muted);
+      padding:26px 0 10px;
+      font-size:13px;
+    }
+    @media (max-width: 980px){
+      .layout{flex-direction:column}
+      .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+        border-left:none;
+        border-bottom:1px solid var(--border);
+      }
+      .content{
+        max-width:100%;
+        padding:18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>BaleNull Documentation</h1>
+        <p>مرجع کامل کتابخانه بله‌نال — شامل Session، BaleBot، BaleClient، APIها، مثال‌ها و ۸ سورس طلایی.</p>
+      </div>
+
+      <input class="search" type="text" placeholder="جستجو در داکیومنت..." oninput="filterSections(this.value)"/>
+
+      <div class="nav">
+        <div class="nav-group">
+          <div class="nav-title">خانه</div>
+          <a href="#intro">مقدمه</a>
+          <a href="#core">مفاهیم پایه</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-title">Session</div>
+          <a href="#session">مدیریت Session</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-title">BaleBot</div>
+          <a href="#bot-messages">ارسال پیام</a>
+          <a href="#bot-mgmt">مدیریت پیام</a>
+          <a href="#bot-info">اطلاعات و وب‌هوک</a>
+          <a href="#bot-events">رویدادها</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-title">BaleClient</div>
+          <a href="#user-login">ورود و سشن</a>
+          <a href="#user-actions">وضعیت و اکشن‌ها</a>
+          <a href="#user-chats">چت‌ها و تاریخچه</a>
+          <a href="#user-contacts">مخاطبین و مدیریت</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-title">مثال‌ها</div>
+          <a href="#examples">۸ سورس طلایی</a>
+          <a href="#advanced">نکات پیشرفته</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="intro" class="hero section">
+        <span class="badge">V 2.5.0 · 2026</span>
+        <h2>مرجع رسمی و کامل BaleNull</h2>
+        <p class="lead">
+          این سند، ترکیب کامل دو نسخه داکیومنت BaleNull است و با هدف حفظ همه قابلیت‌ها، همه متدها، همه مثال‌ها و همه توضیحات تهیه شده است.
+          در این نسخه، هم مدیریت Session، هم متدهای ربات و هم متدهای کلاینت کاربری به‌صورت یکپارچه و دسته‌بندی‌شده ارائه شده‌اند.
+        </p>
+      </section>
+
+      <section id="core" class="section">
+        <h3>فصل ۱: مفاهیم پایه</h3>
+        <div class="grid">
+          <div class="method">
+            <div class="name">API Token</div>
+            <div class="desc">توکن اصلی ربات برای ارتباط با API بله و ارسال درخواست‌ها.</div>
+          </div>
+          <div class="method">
+            <div class="name">Long Polling</div>
+            <div class="desc">روش دریافت آپدیت‌ها با `get_updates` و حلقه `run`.</div>
+          </div>
+          <div class="method">
+            <div class="name">Dispatcher & Handlers</div>
+            <div class="desc">سیستم ثبت هندلرها برای پردازش پیام‌ها و رویدادها.</div>
+          </div>
+          <div class="method">
+            <div class="name">Session (.bale)</div>
+            <div class="desc">فایل سشن رمز/کدگذاری‌شده برای ذخیره‌ی اطلاعات ورود و احراز هویت.</div>
+          </div>
+          <div class="method">
+            <div class="name">Asyncio</div>
+            <div class="desc">پایه اجرای ناهمگام برای ارتباط سریع و غیرمسدودکننده با API.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="session" class="section">
+        <h3>فصل ۲: مدیریت Session</h3>
+        <div class="method"><div class="name">create(phone, auth_token)</div><div class="desc">ساخت سشن جدید و ذخیره شماره تلفن و توکن احراز هویت.</div></div>
+        <div class="method"><div class="name">save()</div><div class="desc">ذخیره اطلاعات سشن در فایل `.bale`.</div></div>
+        <div class="method"><div class="name">load()</div><div class="desc">بارگذاری سشن از فایل و بازیابی داده‌های قبلی.</div></div>
+        <div class="method"><div class="name">export_string()</div><div class="desc">خروجی گرفتن از سشن به‌صورت رشته Base64.</div></div>
+        <div class="method"><div class="name">import_string(session_string)</div><div class="desc">وارد کردن سشن از رشته و ذخیره در حافظه/فایل.</div></div>
+      </section>
+
+      <section id="bot-messages" class="section">
+        <h3>فصل ۲: متدهای BaleBot - ارسال پیام</h3>
+        <div class="method"><div class="name">send_message(chat_id, text, reply_to_message_id=None, reply_markup=None)</div><div class="desc">ارسال پیام متنی.</div></div>
+        <div class="method"><div class="name">send_photo(chat_id, photo, caption=None)</div><div class="desc">ارسال تصویر همراه با کپشن.</div></div>
+        <div class="method"><div class="name">send_audio(chat_id, audio, caption=None)</div><div class="desc">ارسال فایل صوتی.</div></div>
+        <div class="method"><div class="name">send_video(chat_id, video, caption=None)</div><div class="desc">ارسال ویدیو.</div></div>
+        <div class="method"><div class="name">send_animation(chat_id, animation, caption=None)</div><div class="desc">ارسال گیف/انیمیشن.</div></div>
+        <div class="method"><div class="name">send_document(chat_id, document, caption=None)</div><div class="desc">ارسال فایل سند.</div></div>
+        <div class="method"><div class="name">send_voice(chat_id, voice, caption=None)</div><div class="desc">ارسال پیام صوتی.</div></div>
+        <div class="method"><div class="name">send_sticker(chat_id, sticker)</div><div class="desc">ارسال استیکر.</div></div>
+        <div class="method"><div class="name">send_location(chat_id, lat, long)</div><div class="desc">ارسال موقعیت مکانی.</div></div>
+        <div class="method"><div class="name">send_contact(chat_id, phone, name)</div><div class="desc">ارسال مخاطب.</div></div>
+        <div class="method"><div class="name">send_media_group(chat_id, media)</div><div class="desc">ارسال گروهی رسانه‌ها / آلبوم.</div></div>
+      </section>
+
+      <section id="bot-mgmt" class="section">
+        <h3>مدیریت پیام و تعامل</h3>
+        <div class="method"><div class="name">reply(text)</div><div class="desc">پاسخ مستقیم به پیام فعلی.</div></div>
+        <div class="method"><div class="name">delete()</div><div class="desc">حذف پیام فعلی.</div></div>
+        <div class="method"><div class="name">react(emoji)</div><div class="desc">افزودن واکنش به پیام.</div></div>
+        <div class="method"><div class="name">seen()</div><div class="desc">علامت‌گذاری به‌عنوان خوانده‌شده.</div></div>
+        <div class="method"><div class="name">report()</div><div class="desc">گزارش پیام فعلی.</div></div>
+        <div class="method"><div class="name">delete_message(chat_id, message_id)</div><div class="desc">حذف پیام مشخص در یک چت.</div></div>
+        <div class="method"><div class="name">edit_message_text(chat_id, message_id, text)</div><div class="desc">ویرایش متن پیام.</div></div>
+        <div class="method"><div class="name">edit_message_caption(chat_id, message_id, caption)</div><div class="desc">ویرایش کپشن پیام رسانه‌ای.</div></div>
+        <div class="method"><div class="name">edit_message_reply_markup(chat_id, message_id, reply_markup)</div><div class="desc">ویرایش کیبورد/ریپلای‌مارک‌آپ.</div></div>
+        <div class="method"><div class="name">report_message(chat_id, message_id)</div><div class="desc">ریپورت یک پیام خاص.</div></div>
+        <div class="method"><div class="name">add_to_saved(chat_id, message_id)</div><div class="desc">افزودن پیام به Saved Messages.</div></div>
+        <div class="method"><div class="name">view_message(chat_id, message_id)</div><div class="desc">ثبت مشاهده پیام.</div></div>
+        <div class="method"><div class="name">forward_message(from_chat_id, message_id, to_chat_id)</div><div class="desc">فوروارد پیام.</div></div>
+        <div class="method"><div class="name">copy_message(from_chat_id, message_id, to_chat_id)</div><div class="desc">کپی پیام.</div></div>
+      </section>
+
+      <section id="bot-info" class="section">
+        <h3>اطلاعات، فایل و وب‌هوک</h3>
+        <div class="method"><div class="name">get_file(file_id)</div><div class="desc">گرفتن اطلاعات فایل.</div></div>
+        <div class="method"><div class="name">get_chat(chat_id)</div><div class="desc">گرفتن اطلاعات چت.</div></div>
+        <div class="method"><div class="name">get_me()</div><div class="desc">گرفتن اطلاعات خود ربات.</div></div>
+        <div class="method"><div class="name">send_chat_action(chat_id, action)</div><div class="desc">ارسال اکشن چت مثل typing یا upload_photo.</div></div>
+        <div class="method"><div class="name">set_webhook(url)</div><div class="desc">تنظیم وب‌هوک.</div></div>
+        <div class="method"><div class="name">delete_webhook()</div><div class="desc">حذف وب‌هوک.</div></div>
+        <div class="method"><div class="name">get_webhook_info()</div><div class="desc">دریافت اطلاعات وب‌هوک.</div></div>
+        <div class="method"><div class="name">download(file_path, save_as)</div><div class="desc">دانلود فایل از سرور فایل بله.</div></div>
+      </section>
+
+      <section id="bot-events" class="section">
+        <h3>رویدادها و چرخه اجرا</h3>
+        <div class="method"><div class="name">get_updates(offset)</div><div class="desc">دریافت آپدیت‌های جدید.</div></div>
+        <div class="method"><div class="name">on_message()</div><div class="desc">ثبت هندلر پیام.</div></div>
+        <div class="method"><div class="name">run()</div><div class="desc">اجرای لوپ اصلی و پردازش دائمی رویدادها.</div></div>
+        <div class="method"><div class="name">connect()</div><div class="desc">ایجاد اتصال اولیه به API.</div></div>
+        <div class="method"><div class="name">close()</div><div class="desc">بستن اتصال و آزادسازی منابع.</div></div>
+        <div class="method"><div class="name">_request(method, data, files, http_method)</div><div class="desc">هسته‌ی ارسال درخواست HTTP به API.</div></div>
+      </section>
+
+      <section id="user-login" class="section">
+        <h3>فصل ۲: متدهای BaleClient - ورود و سشن</h3>
+        <div class="method"><div class="name">send_code(phone)</div><div class="desc">ارسال کد ورود به شماره تلفن.</div></div>
+        <div class="method"><div class="name">sign_in(phone, code)</div><div class="desc">ورود به حساب با شماره و کد.</div></div>
+        <div class="method"><div class="name">export_session_string()</div><div class="desc">خروجی گرفتن از سشن به‌شکل رشته.</div></div>
+      </section>
+
+      <section id="user-actions" class="section">
+        <h3>وضعیت و اکشن‌ها</h3>
+        <div class="method"><div class="name">set_online()</div><div class="desc">آنلاین کردن حساب.</div></div>
+        <div class="method"><div class="name">set_offline()</div><div class="desc">آفل></div>
+        <></div>
+        <div class="method"><div class="name">get_status()</div><div class="desc">دریافت وضعیت آنلاین/آفلاین.</div></div>
+        <div class="method"><div class="name">typing(chat_id)</div><div class="desc">نمایش اکشن تایپ.</div></div>
+        <div class="method"><div class="name">upload_photo_action(chat_id)</div><div class="desc">اکشن آپلود عکس.</div></div>
+        <div class="method"><div class="name">upload_document_action(chat_id)</div><div class="desc">اکشن آپلود سند.</div></div>
+        <div class="method"><div class="name">record_voice_action(chat_id)</div><div class="desc">اکشن ضبط ویس.</div></div>
+      </section>
+
+      <section id="user-chats" class="section">
+        <h3>چت‌ها و تاریخچه</h3>
+        <div class="method"><div class="name">get_dialogs()</div><div class="desc">گرفتن فهرست گفتگوها.</div></div>
+        <div class="method"><div class="name">get_history(chat_id, limit=50)</div><div class="desc">دریافت تاریخچه‌ی پیام‌های یک چت.</div></div>
+        <div class="method"><div class="name">search_messages(chat_id, query, limit=20)</div><div class="desc">جستجو در پیام‌ها.</div></div>
+        <div class="method"><div class="name">join_by_link(invite_link)</div><div class="desc">عضویت در گروه/کانال با لینک دعوت.</div></div>
+        <div class="method"><div class="name">leave_chat(chat_id)</div><div class="desc">خروج از چت.</div></div>
+      </section>
+
+      <section id="user-contacts" class="section">
+        <h3>مخاطبین و مدیریت چت</h3>
+        <div class="method"><div class="name">block_user(user_id)</div><div class="desc">بلاک کردن کاربر.</div></div>
+        <div class="method"><div class="name">unblock_user(user_id)</div><div class="desc">آنبلاک کردن کاربر.</div></div>
+        <div class="method"><div class="name">get_blocked_users()</div><div class="desc">لیست کاربران بلاک‌شده.</div></div>
+        <div class="method"><div class="name">get_contacts()</div><div class="desc">دریافت مخاطبین.</div></div>
+        <div class="method"><div class="name">get_common_chats(user_id)</div><div class="desc">دریافت چت‌های مشترک با کاربر.</div></div>
+        <div class="method"><div class="name">archive_chat(chat_id)</div><div class="desc">آرشیو کردن چت.</div></div>
+        <div class="method"><div class="name">unarchive_chat(chat_id)</div><div class="desc">خارج کردن چت از آرشیو.</div></div>
+        <div class="method"><div class="name">pin_chat(chat_id)</div><div class="desc">پین کردن چت.</div></div>
+        <div class="method"><div class="name">unpin_chat(chat class="desc">لغو میdesc">حذف پین چت.</div></div>
+        <div class="method"><div class="name">mute_chat(chat_id)</div><div class="desc">میوت کردن چت.</div></div>
+        <div class="method"><div class="name">unmute_chat(chat_id)</div><div class="desc">لغو میوت.</div></div>
+        <div class="method"><div class="name">mark_dialog_unread(chat_id)</div><div class="desc">علامت‌گذاری گفتگو به‌عنوان خوانده‌نشده.</div></div>
+      </section>
+
+      <section id="examples" class="section">
+        <h3>فصل ۳: ۸ سورس طلایی</h3>
+        <div class="method"><div class="name">1) Echo Bot</div><div class="desc">پاسخ‌گویی خودکار به هر پیام با همان متن.</div></div>
+        <div class="method"><div class="name">2) Welcome Bot</div><div class="desc">خوش‌آمدگویی به اعضای جدید گروه.</div></div>
+        <div class="method"><div class="name">3) Anti-Badword</div><div class="desc">فیلترکردن کلمات نامناسب.</div></div>
+        <div class="method"><div class="name">4) Downloader</div><div class="desc">دانلود فایل‌ها و ذخیره روی دستگاه.</div></div>
+        <div class="method"><div class="name">5) Reaction Bot</div><div class="desc">افزودن واکنش خودکار به پیام‌ها.</div></div>
+        <div class="method"><div class="name">6) Forward Bot</div><div class="desc">فوروارد خودکار پیام‌ها به مقصد دیگر.</div></div>
+        <div class="method"><div class="name">7) Status Bot</div><div class="desc">مدیریت آنلاین/آفلاین کاربر.</div></div>
+        <div class="method"><div class="name">8) Auto-Report Bot</div><div class="desc">ریپورت خودکار پیام‌های هدف.</div></div>
+
+        <div class="codebox">
+# نمونه‌ی Echo Bot
+from balenull import BaleBot
+
+bot = BaleBot("YOUR_BOT_TOKEN")
+
+@bot.on_message()
+async def handler(msg):
+    await msg.reply(msg.text or "Empty")
+
+bot.run()
+        </div>
+      </section>
+
+      <section id="advanced" class="section">
+        <h3>نکات پیشرفته</h3>
+        <p class="lead">
+          - برای پروژه‌های بزرگ، هندلرها را ماژولار نگه دارید.
+          <br>- سشن را امن نگه دارید و فایل `.bale` را در نسخه‌ کنترل قرار ندهید.
+          <br>- در متدهای فایل، خطاهای شبکه و MIME type را کنترل کنید.
+          <br>- برای عملکرد بهتر، از `asyncio` و صف پردازش رویدادها استفاده>
+      </section>
+
+      <div class="footer">طراحی شده با ❤️ توسط Henry | BaleNull Project 2026</div>
+    </main>
+  </div>
+
+  <script>
+    function filterSections(q){
+      q = q){
+      q = q.toLowerCase().trim();
+      const sections = document.querySelectorAll('.section, .hero');
+      sections.forEach(sec => {
+        const text = sec.innerText.toLowerCase();
+        sec.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
